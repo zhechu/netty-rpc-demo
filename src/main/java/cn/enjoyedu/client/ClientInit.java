@@ -9,11 +9,10 @@ import io.netty.handler.codec.LengthFieldPrepender;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 
 /**
- * @author Mark老师   享学课堂 https://enjoy.ke.qq.com
- * 往期课程和VIP课程咨询 依娜老师  QQ：2133576719
- * 类说明：客户端Handler的初始化
+ * 客户端Handler的初始化
  */
 public class ClientInit extends ChannelInitializer<SocketChannel> {
+
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         /*剥离接收到的消息的长度字段，拿到实际的消息报文的字节数组*/
@@ -44,4 +43,5 @@ public class ClientInit extends ChannelInitializer<SocketChannel> {
         ch.pipeline().addLast("HeartBeatHandler",
                 new HeartBeatReqHandler());
     }
+
 }

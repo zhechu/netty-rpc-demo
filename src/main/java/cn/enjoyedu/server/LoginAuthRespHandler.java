@@ -14,9 +14,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * @author Mark老师   享学课堂 https://enjoy.ke.qq.com
- * 往期课程和VIP课程咨询 依娜老师  QQ：2133576719
- * 类说明：登录检查
+ * 登录检查
  */
 public class LoginAuthRespHandler extends ChannelInboundHandlerAdapter {
 
@@ -86,4 +84,5 @@ public class LoginAuthRespHandler extends ChannelInboundHandlerAdapter {
 		ctx.close();
 		ctx.fireExceptionCaught(cause);
     }
+
 }

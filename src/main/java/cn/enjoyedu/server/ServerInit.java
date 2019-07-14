@@ -11,11 +11,10 @@ import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.ReadTimeoutHandler;
 
 /**
- * @author Mark老师   享学课堂 https://enjoy.ke.qq.com
- * 往期课程和VIP课程咨询 依娜老师  QQ：2133576719
- * 类说明：
+ * Channel 初始化
  */
 public class ServerInit extends ChannelInitializer<SocketChannel> {
+
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         /*Netty提供的日志打印Handler，可以展示发送接收出去的字节*/
@@ -47,4 +46,5 @@ public class ServerInit extends ChannelInitializer<SocketChannel> {
         ch.pipeline().addLast("ServerBusiHandler",
                 new ServerBusiHandler());
     }
+
 }

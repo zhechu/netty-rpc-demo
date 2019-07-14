@@ -9,9 +9,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 /**
- * @author Mark老师   享学课堂 https://enjoy.ke.qq.com
- * 往期课程和VIP课程咨询 依娜老师  QQ：2133576719
- * 类说明：发起登录请求
+ * 发起登录请求
  */
 public class LoginAuthReqHandler extends ChannelInboundHandlerAdapter {
 
@@ -21,7 +19,6 @@ public class LoginAuthReqHandler extends ChannelInboundHandlerAdapter {
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         ctx.writeAndFlush(buildLoginReq());
     }
-
 
     public void channelRead(ChannelHandlerContext ctx, Object msg)
             throws Exception {
@@ -55,4 +52,5 @@ public class LoginAuthReqHandler extends ChannelInboundHandlerAdapter {
             throws Exception {
         ctx.fireExceptionCaught(cause);
     }
+
 }

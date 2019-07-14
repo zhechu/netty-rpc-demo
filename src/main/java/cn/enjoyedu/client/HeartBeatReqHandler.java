@@ -14,9 +14,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author Mark老师   享学课堂 https://enjoy.ke.qq.com
- * 往期课程和VIP课程咨询 依娜老师  QQ：2133576719
- * 类说明：心跳请求处理
+ * 心跳请求处理
  */
 public class HeartBeatReqHandler extends ChannelInboundHandlerAdapter {
 
@@ -36,13 +34,13 @@ public class HeartBeatReqHandler extends ChannelInboundHandlerAdapter {
                     5000,
                     TimeUnit.MILLISECONDS);
             ReferenceCountUtil.release(msg);
-        //如果是心跳应答
+        // 如果是心跳应答
         } else if (message.getMyHeader() != null
                 && message.getMyHeader().getType() == MessageType.HEARTBEAT_RESP
                 .value()) {
             LOG.info("Client receive server heart beat message : ---> ");
             ReferenceCountUtil.release(msg);
-        //如果是其他报文，传播给后面的Handler
+        // 如果是其他报文，传播给后面的Handler
         } else
             ctx.fireChannelRead(msg);
     }
@@ -50,7 +48,7 @@ public class HeartBeatReqHandler extends ChannelInboundHandlerAdapter {
     /*心跳请求任务*/
     private class HeartBeatTask implements Runnable {
         private final ChannelHandlerContext ctx;
-        //心跳计数，可用可不用，已经有超时处理机制
+        // 心跳计数，可用可不用，已经有超时处理机制
         private final AtomicInteger heartBeatCount;
 
         public HeartBeatTask(final ChannelHandlerContext ctx) {
@@ -85,4 +83,5 @@ public class HeartBeatReqHandler extends ChannelInboundHandlerAdapter {
         }
         ctx.fireExceptionCaught(cause);
     }
+
 }

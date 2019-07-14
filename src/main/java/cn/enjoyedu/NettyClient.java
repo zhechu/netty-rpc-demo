@@ -22,9 +22,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
- * @author Mark老师   享学课堂 https://enjoy.ke.qq.com
- * 往期课程和VIP课程咨询 依娜老师  QQ：2133576719
- * 类说明：Netty客户端的主入口
+ * Netty客户端的主入口
  */
 public class NettyClient implements Runnable{
 
@@ -131,6 +129,5 @@ public class NettyClient implements Runnable{
         userClose = true;
         channel.close();
     }
-
 
 }

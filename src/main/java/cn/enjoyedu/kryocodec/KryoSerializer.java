@@ -10,10 +10,13 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 /**
- * @author Mark老师   享学课堂 https://enjoy.ke.qq.com
- * 类说明：反序列化/序列化器
+ * 反序列化/序列化器
  */
 public class KryoSerializer {
+
+    /**
+     * 存在线程安全问题
+     */
     private static Kryo kryo = KryoFactory.createKryo();
 
     public static void serialize(Object object, ByteBuf out) {
@@ -40,4 +43,5 @@ public class KryoSerializer {
         Input input = new Input(new ByteBufInputStream(out));
         return kryo.readClassAndObject(input);
     }
+
 }
